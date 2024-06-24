@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.gatling.demo</groupId>
+  <artifactId>gatling-maven-plugin-demo-java</artifactId>
+  <version>3.11.4</version>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <gatling.version>${project.version}</gatling.version>
+    <gatling-maven-plugin.version>4.9.4</gatling-maven-plugin.version>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+    <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.resolver</groupId>
+      <artifactId>maven-resolver-transport-file</artifactId>
+      <version>1.4.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.resolver</groupId>
+      <artifactId>maven-resolver-transport-wagon</artifactId>
+      <version>1.4.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.gatling.highcharts</groupId>
+      <artifactId>gatling-charts-highcharts</artifactId>
+      <version>${gatling.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>io.gatling</groupId>
+        <artifactId>gatling-maven-plugin</artifactId>
+        <version>${gatling-maven-plugin.version}</version>
+        <configuration>
+          <apiToken>FxKfs3cbDfxXsc-ShUjpyfTWhImEt-haIKBF6abM1jYq6XgqJ13ScBIz4hU6erbC-</apiToken>
+          <packageId>68242ec1-0c97-4c81-b14b-8e834c59b6df</packageId>
+          <simulationId>b5112a5e-3848-418d-9634-414ff9b2e852</simulationId>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

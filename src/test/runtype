@@ -1,0 +1,24 @@
+./mvnw gatling:recorder
+./mvnw gatling:enterpriseDeploy -Dgatling.enterprise.packageDescriptorFilename="<file name>"
+./mvnw gatling:enterpriseStart -Dgatling.enterprise.simulationName="computerdatabase.ComputerDatabaseSimulation"
+./mvnw gatling:enterprisePackage
+./mvnw gatling:enterpriseUpload
+./mvnw gatling:test
+./mvnw deploy -DaltDeploymentRepository=releases::default::file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/releases
+./mvnw deploy -e -X -DaltDeploymentRepository=releases::default::file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/releases
+
+
+./mvnw gatling:enterpriseDeploy -Dgatling.enterprise.packageDescriptorFilename="ece"
+
+
+
+ <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>file:///Users/skup/Downloads/gatling-maven-plugin-demo-java-main-2/local-repo/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
